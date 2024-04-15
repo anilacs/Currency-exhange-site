@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400;600;700;900&display=swap"
+        rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/eee25c90aa.js" crossorigin="anonymous"></script>
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/svg" href="img/hotel-solid.svg">
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="./style.css">
+
+    <title>currency </title>
+</head>
+<body class="container">
+    <!-- Header Section -->
+    <header id="header">
+        <!-- Navigation -->
+        <nav class="headerMainNav">
+            <input type="checkbox">
+            <div class="headerMainNav-Hambuger"><div></div></div>
+            <div class="headerMainNav-Menu">
+                <div>
+                    <div>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            
+                            <li><a href="#">Todays rate</a></li>
+                            <li><a href="#">Collection</a></li>
+                            <li><a href="#">Gallary</a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Header Logo And Content -->
+        <div class="headerLogoContent">
+            <!-- Logo -->
+            <a href="#" class="headerLogoContent--Logo"><span>CURRENCY</span></a>
+
+            <!-- Content -->
+            <div class="headerLogoContent--Content">
+                <h1 class="headerLogoContent--ContentTitle">Exchange Your Money</h1>
+                <p class="headerLogoContent--ContentPara">Get the best currency exchange rates for international money transfers to 200 countries in 100 foreign currencies.</p>
+                <a href="#" class="headerLogoContent--ContentLink">Discover More</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Booking Content Section -->
+    <section id="bookingContent">
+        <h2 class="bookingContentTitle">Transfer Your Money</h2>
+        <p class="bookingContentPara">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia laudantium quo consequatur molestiae voluptates, id nostrum, obcaecati, molestias pariatur iste cum voluptatem sapiente? Minima repudiandae unde repellat alias quasi sit.</p>
+
+       
+    </section>
+
+    <!-- Booking Date Section -->
+    <section id="bookingDate">
+        <!-- Schedule -->
+        <!-- <div class="bookingDateSchedule">
+            <div class="bookingDateSchedule--Arrival">
+                <h5>Today</h5>
+                <div>
+                    <p>April</p>
+                    <p>12</p>
+                    <p>&#65088;</p>
+                </div>
+            </div>
+
+            <div class="bookingDateSchedule--Departure">
+                <h5>Change Your Money</h5>
+                
+            </div>
+
+            <div class="bookingDateSchedule--Guest">
+                <h5>INR</h5>
+                
+            </div>
+        </div> -->
+<!-- TODAYS RATE -->
+<div class="containerr">
+    <h1>Currency Converter</h1>
+    <div class="converterr">
+        <input type="number" id="amount" placeholder="Enter amount">
+        <div class="row">
+            <div class="col">
+                <select id="from">
+                    <!-- populate using javascript -->
+                 </select>
+        
+            </div>
+            <div class="=col">
+                <select id="to">
+                    <!-- populate using javascript -->
+                </select>
+        
+            </div>
+        </div>
+        
+        
+        <button id="whatever" onclick="convert()">Convert</button>
+        <button id="whatever" onclick="reset()"> Reset</button>
+    </div>
+    <div id="result"></div>
+</div>
+        <!-- Contact -->
+        <div class="bookingDateContact">
+            <a href="#" class="bookingDateContact--Link">Make A Reservation</a>
+            <p>Reservation Hotline</p>
+            <p>+1-123-4565-7899</p>
+            <p>Reservation Assistance Available 24 Hours</p>
+        </div>
+    </section>
+
+
+
+    <!-- Villas Section -->
+    
+    <section id="villas">
+        <!-- Villa 1 -->
+        
+        <div class="villasVilla-1">
+            <h2 class="villasVilla-1-Title">United States Dollar (USD)</h2>
+            <p class="villasVilla-1-Para">Travelling to United States of America (USA)? Find answers to all your questions related to United States Dollar (USD).</p>
+            <a href="#" class="villasVilla-1-Link">Starting At $1</a>
+        </div>
+
+        <!-- Villa 2 -->
+        <div class="villasVilla-2">
+            <h2 class="villasVilla-2-Title"> Indian Rupee (INR)</h2>
+            <p class="villasVilla-2-Para">The Indian rupee sign ⟨₹⟩ is the currency symbol for the Indian rupee (ISO 4217: INR), the official currency of India. Designed by D. Udaya Kumar</p>
+            <a href="#" class="villasVilla-2-Link">Starting At ₹1.00</a>
+        </div>
+
+        <!-- Villa 3 -->
+        <div class="villasVilla-3">
+            <h2 class="villasVilla-3-Title">euro (EUR)</h2><br><br><br><br>
+            <p class="villasVilla-3-Para">with the first letter in the word “Europe” and with 2 parallel lines signifying stability. The ISO code for the euro is EUR.</p>
+            <a href="#" class="villasVilla-3-Link">Starting At € 1</a>
+        </div>
+
+        <!-- Villa 4 -->
+        <div class="villasVilla-4">
+            <h2 class="villasVilla-4-Title">Riyal</h2>
+            <p class="villasVilla-4-Para">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto sint et quas, dignissimos mollitia obcaecati consequuntur nesciunt. Modi quasi veniam dolor ut a deserunt iure, obcae.</p>
+            <a href="#" class="villasVilla-4-Link">Starting At ﷼ 1</a>
+        </div>
+
+        <!-- Villa 5 -->
+        <div class="villasVilla-5">
+            <h2 class="villasVilla-5-Title"> Penny </h2>
+            <p class="villasVilla-5-Para">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto sint et quas, dignissimos mollitia obcaecati consequuntur nesciunt. Modi quasi veniam dolor ut a deserunt iure, obcae.</p>
+            <a href="#" class="villasVilla-5-Link">Starting At 1 ₰</a>
+        </div>
+
+        <!-- Villa 6 -->
+        <div class="villasVilla-6">
+            <h2 class="villasVilla-6-Title"> Austral 
+            </h2>
+            <p class="villasVilla-6-Para">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto sint et quas, dignissimos mollitia obcaecati consequuntur nesciunt. Modi quasi veniam dolor ut a deserunt iure, obcae.</p>
+            <a href="#" class="villasVilla-6-Link">Starting At 1 ₳</a>
+        </div>
+    </section>
+
+    <!-- Motto Section -->
+    <section id="motto">
+        <div class="mottoContent">
+            <h2 class="mottoContentTitle">Get Best Rate for United States Dollar (USD) </h2>
+            <p class="mottoContentPara">
+                
+                The United States Dollar (USD) is the official currency of the United States of America and also the most widely used currency for international transactions.
+                
+                The Federal Reserve Board issues currency in seven following denominations: $1, $2, $5, $10, $20, $50, and $100 notes.
+                
+                Countries Accepting the US Dollar
+                
+                About 65 countries in the world peg their currencies to the US Dollar. In fact, the US Dollar is easily accepted in most of the countries.
+            </p>
+        </div>
+    </section>
+
+    <!-- Event Content Section -->
+    <section id="eventContent">
+        <!-- Event 1 -->
+        <div class="eventContentEvent1">
+            <h2 class="eventContentEvent1--Title">Order with Partial Payment Option.</h2>
+            <p class="eventContentEvent1--Para">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores earum consequatur magni iure. Sit possimus officia, illum dignissimos dolorem repellendus.</p>
+        </div>
+        
+        <!-- Event 2 -->
+        <div class="eventContentEvent2">
+            <h2 class="eventContentEvent2--Title">Order with full Payment Option.</h2>
+            <p class="eventContentEvent2--Para">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores earum consequatur magni iure. Sit possimus officia, illum dignissimos dolorem repellendus.</p>
+        </div>
+        
+    </section>
+
+    <!-- Event Text Section -->
+    <section id="eventText">
+        <div class="eventTextContent">
+            <h2 class="eventTextContent--Title"> Live rate</h2>
+        </div>
+    </section>
+
+    <!-- Gallary Text Section -->
+    <section id="gallaryText">
+        <div class="gallaryTextContent">
+            <h2 class="gallaryTextContent--Title">Gallary</h2>
+        </div>
+    </section>
+
+    <!-- Gallary Carousel Section -->
+    <section id="gallaryCarousel">
+        <!-- Button Left -->
+        <button class="gallaryCarouselBtn gallaryCarouselBtn--Left hidden">
+            <i class="fas fa-caret-left"></i>
+        </button>
+
+        <!-- Image Container -->
+        <div class="gallaryCarousel--ImgContainer">
+            <ul class="gallaryCarousel--ImgContainerList">
+                <li class="gallaryCarousel--ImgContainerList__item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/74/The_Europa_series_100_%E2%82%AC_obverse_side.jpg" alt="villa">
+                </li>
+                <li class="gallaryCarousel--ImgContainerList__item currentImg">
+                    <img src="https://wpassets.adda247.com/wp-content/uploads/multisite/sites/5/2023/10/18160743/Currency-of-China.png" alt="villa">
+                </li>
+
+                <li class="gallaryCarousel--ImgContainerList__item">
+                    <img src="https://static.toiimg.com/thumb/msid-102737142,width-1070,height-580,imgsize-1355975,resizemode-75,overlay-toi_sw,pt-32,y_pad-40/photo.jpg" alt="villa">
+                </li>
+
+               
+
+                <li class="gallaryCarousel--ImgContainerList__item">
+                    <img src="https://www.unimoni.in/blog/wp-content/uploads/2020/09/foreign-currency-notes.jpg" alt="villa">
+                </li>
+
+                <li class="gallaryCarousel--ImgContainerList__item">
+                    <img src="https://c.ndtvimg.com/2020-10/igl1kpc_global-currencies-reuters_625x300_23_October_20.jpg?downsize=360:*" alt="villa">
+                </li>
+
+                <li class="gallaryCarousel--ImgContainerList__item">
+                    <img src="https://st5.depositphotos.com/73272022/61951/i/450/depositphotos_619513568-stock-photo-paper-money-afghanistan-afghan-afghani.jpg" alt="villa">
+                </li>
+
+                <li class="gallaryCarousel--ImgContainerList__item">
+                    <img src="https://thumbor.forbes.com/thumbor/fit-in/900x510/https://www.forbes.com/advisor/wp-content/uploads/2020/11/what-is-forex-trading.jpg" alt="villa">
+                </li>
+
+                <li class="gallaryCarousel--ImgContainerList__item">
+                    <img src="https://cdn.pixabay.com/photo/2019/04/12/12/52/the-greenback-4122078_640.jpg" alt="villa">
+                </li>
+
+                <li class="gallaryCarousel--ImgContainerList__item">
+                    <img src="https://cms-attachments.storage.googleapis.com/blog/uploads/2019/04/online-currency-exchange-benefits-1.jpg" alt="villa">
+                </li>
+
+                <li class="gallaryCarousel--ImgContainerList__item">
+                    <img src="https://t4.ftcdn.net/jpg/01/86/49/83/360_F_186498311_cYO8zJDfWx6yxkleOmmeRJtHy81eC46f.jpg" alt="villa">
+                </li>
+            </ul>
+        </div>
+
+        <!-- Button Right -->
+        <button class="gallaryCarouselBtn gallaryCarouselBtn--Right">
+            <i class="fas fa-caret-right"></i>
+        </button>
+
+        <!-- Carousel Nav -->
+        <div class="gallaryCarouselNav">
+            <button class="gallaryCarouselNav--Btn currentImg"></button>
+            <button class="gallaryCarouselNav--Btn"></button>
+            <button class="gallaryCarouselNav--Btn"></button>
+            <button class="gallaryCarouselNav--Btn"></button>
+            <button class="gallaryCarouselNav--Btn"></button>
+            <button class="gallaryCarouselNav--Btn"></button>
+            <button class="gallaryCarouselNav--Btn"></button>
+            <button class="gallaryCarouselNav--Btn"></button>
+            <button class="gallaryCarouselNav--Btn"></button>
+            <button class="gallaryCarouselNav--Btn"></button>
+        </div>
+
+
+    </section>
+
+   
+
+    <!-- Testemonials Section -->
+    <section id="testemonials">
+       
+
+            <!-- Back -->
+            <div class="testemonialsCardBack">
+                <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium, at!
+                </p>
+            </div>
+        </div>
+
+        <!-- Testemonials 4 -->
+        <div class="testemonialsCard">
+            <!-- Front -->
+            <div class="testemonialsCardFront">
+                <h2>BHD</h2>
+            </div>
+
+            <!-- Back -->
+            <div class="testemonialsCardBack">
+                <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium, at!
+                </p>
+            </div>
+        </div>
+
+        <!-- Testemonials 5 -->
+        <div class="testemonialsCard">
+            <!-- Front -->
+            <div class="testemonialsCardFront">
+                <h2>AUD</h2>
+            </div>
+
+            <!-- Back -->
+            <div class="testemonialsCardBack">
+                <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium, at!
+                </p>
+            </div>
+        </div>
+
+        <!-- Testemonials 6 -->
+        <div class="testemonialsCard">
+            <!-- Front -->
+            <div class="testemonialsCardFront">
+                <h2>USD</h2>
+            </div>
+
+            <!-- Back -->
+            <div class="testemonialsCardBack">
+                <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium, at!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer id="footer">
+        <p>All Right Reserved. &copy; CURRENCY</p>
+        <div class="footerSocials">
+            <a href="#" class="footerSocialsLink">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+
+            <a href="#" class="footerSocialsLink">
+                <i class="fab fa-twitter"></i>
+            </a>
+
+            <a href="#" class="footerSocialsLink">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+
+            <a href="#" class="footerSocialsLink">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+    </footer>
+
+
+    <script src="./script.js"></script>
+</body>
+</html>

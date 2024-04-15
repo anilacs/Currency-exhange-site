@@ -1,0 +1,1186 @@
+/* Reset */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Utility Components */
+
+:root {
+    font-size: 62.5%;
+
+    /* Custom Properties */
+    /* Colors */
+
+    --colorPriamry: #730039;
+    --colorPrimaryM-Dark: hsla(330, 100%, 23%, 0.55);
+    --colorPrimaryM-Light: hsla(330, 100%, 23%, 0.85);
+
+    --colorSecondary: #ffc513;
+    --colorSecondaryM-Dark: rgba(255, 196, 19, 0.85);
+    --colorSecondaryM-Light: hsla(45, 100%, 54%, 0.55);
+
+    --colorTetiary: #ff724c;
+    --colorTetiaryM-Dark: hsla(13, 100%, 65%, 0.85);
+    --colorTetiaryM-Light: hsla(13, 100%, 65%, 0.55);
+    
+
+
+    --colorQuaternaery: #f6eedf;
+    --colorQuaternaeryM-Dark: hsla(39, 56%, 92%, 0.6);
+    --colorQuaternaeryM-Light: hsla(39, 56%, 92%, 0.85);
+
+    /* Transition Duration */
+    --transitionDuration: 0.3s;
+
+    /* Section Title Font Size */
+    --fontSizeTitle: calc(2rem + 2vw);
+
+    /* Section Padding */
+    --paddingSection: 8vh 3vw;
+}
+
+body {
+    font-family: "Titillium Web", sans-serif;
+    line-height: 1.7;
+    background-color: var(--colorQuaternaery);
+}
+
+.container {
+    display: grid;
+    grid-template-columns: [container-start] 1fr [center-start] repeat(10, [col-start] minmax(min-content, 11rem) [col-end]) [center-end] 1fr [container-end];
+
+    grid-template-rows: 100vh repeat(8, min-content);
+}
+
+
+/* Anchor Tags */
+a:link,
+a:visited {
+    color: var(--colorQuaternaery);
+    text-decoration: none;
+    font-size: calc(0.5rem + 1vw);
+    padding: 1rem 2rem;
+    border-radius: 0.3rem;
+    position: relative;
+    transition: all var(--transitionDuration) cubic-bezier(1, 0, 0, 1);
+    z-index: 1;
+}
+
+/* Paragraph */
+p {
+    color: white;
+    font-size: calc(1rem + 1vw);
+    font-weight: 200;
+}
+
+/* List Items */
+li {
+    list-style: none;
+    margin-bottom: 4rem;
+}
+
+/* Items */
+i {
+    font-size: var(--fontSizeTitle);
+    color: var(--colorSecondary);
+}
+
+/* Main Styling */
+
+/* Header Section */
+header#header {
+    grid-column: container-start / container-end;
+    background: linear-gradient(var(--colorPrimaryM-Light), var(--colorPrimaryM-Light));
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.headerMainNav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 6;
+}
+
+.headerMainNav input[type=checkbox] {
+    position: absolute;
+    top: 3rem;
+    left: 3rem;
+    height: 5rem;
+    width: 5rem;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.headerMainNav-Hambuger {
+    position: absolute;
+    top: 3rem;
+    left: 3rem;
+    height: 5rem;
+    width: 5rem;
+    padding: 1rem;
+    background-color: var(--colorSecondary);
+    z-index: 2;
+
+    
+
+    display: grid;
+    place-items: center;
+
+    animation: main-nav 2s;
+}
+
+@keyframes main-nav {
+    0% {
+        transform: translateX(150rem) rotate(1800deg);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0) rotate(0);
+        opacity: 1;
+    }
+}
+
+.headerMainNav-Hambuger > div {
+    position: relative;
+    height: 0.3rem;
+    width: 100%;
+    background-color:black;
+
+    display: grid;
+    place-items: center;
+    transition: all var(--transitionDuration) ease-in-out;
+}
+
+.headerMainNav-Hambuger > div::before,
+.headerMainNav-Hambuger > div::after {
+    content: "";
+    position: absolute;
+    top: -1rem;
+    width: 60%;
+    height: inherit;
+    background-color: inherit;
+}
+
+.headerMainNav-Hambuger > div::before {
+    left: 0;
+}
+
+.headerMainNav-Hambuger > div::after {
+    top: 1rem;
+    right: 0;
+}
+
+.headerMainNav input[type="checkbox"]:checked + .headerMainNav-Hambuger > div {
+    transform: rotate(135deg);
+}
+
+.headerMainNav input[type="checkbox"]:checked + .headerMainNav-Hambuger > div::before {
+    left: 0;
+    top: 0;
+    width: 100%;
+    transform: rotate(270deg);
+}
+
+.headerMainNav input[type="checkbox"]:checked + .headerMainNav-Hambuger > div::after {
+    opacity: 0;
+}
+
+.headerMainNav input[type="checkbox"]:checked:hover + .headerMainNav-Hambuger > div {
+    transform: rotate(405deg);
+}
+
+.headerMainNav-Menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    visibility: hidden;
+
+
+    display: grid;
+    place-items: center;
+}
+
+.headerMainNav-Menu > div {
+    background-color: black;
+    height: 200%;
+    width: 200%;
+
+    display: grid;
+    place-items: center;
+
+    transform: scaleX(0);
+    transition: all 1s ease-in-out;
+}
+
+.headerMainNav-Menu > div > div {
+    text-align: center;
+    max-width: 90vw;
+    max-height: 100vh;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.headerMainNav input[type="checkbox"]:checked ~ .headerMainNav-Menu {
+    visibility: visible;
+}
+
+.headerMainNav input[type="checkbox"]:checked ~ .headerMainNav-Menu > div {
+    transform: scaleX(1);
+}
+
+.headerMainNav input[type="checkbox"]:checked ~ .headerMainNav-Menu > div > div {
+    opacity: 1;
+}
+
+.headerMainNav-Menu ul li a:link,
+.headerMainNav-Menu ul li a:active {
+    z-index: 5;
+    font-size: calc(1.5rem + 0.5vw);
+}
+
+.headerMainNav-Menu ul li a:link::before,
+.headerMainNav-Menu ul li a:visited::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    background-color: var(--colorPrimaryM-Dark);
+    transform: scaleY(0);
+    transition: transform var(--transitionDuration) ease-in-out;
+}
+
+.headerMainNav-Menu ul li a:hover::before,
+.headerMainNav-Menu ul li a:active::before {
+    transform: scaleY(1);
+}
+
+/* Rest of the header section */
+.headerLogoContent {
+    display: grid;
+    grid-template-columns: 1fr minmax(30rem, 1fr) 1fr;
+    grid-template-rows: min-content;
+    height: 90%;
+    justify-items: center;
+}
+
+.headerLogoContent--Logo {
+    grid-column: 2 / 3;
+}
+
+.headerLogoContent--Logo span {
+    color: var(--colorTetiary);
+    font-size: 3rem;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.headerLogoContent--Content {
+    grid-column: 1 / -1;
+    align-self: center;
+}
+
+.headerLogoContent--ContentTitle {
+    font-size: calc(4rem + 4vw);
+    font-weight: 300;
+    color: white;
+    text-transform: uppercase;
+    padding: 0 2rem 0 var(--fontSizeTitle);
+}
+
+.headerLogoContent--ContentPara {
+    font-size: calc(1rem + 2vw);
+    font-weight: 500;
+    padding: 2vh 2rem 6vh var(--fontSizeTitle);
+}
+
+.headerLogoContent--ContentLink:link,
+.headerLogoContent--ContentLink:visited {
+    margin-left: var(--fontSizeTitle);
+    border: 0.2rem solid var(--colorTetiary);
+}
+
+.headerLogoContent--ContentLink:link::before,
+.headerLogoContent--ContentLink:visited::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--colorTetiary);
+    transform: scaleX(0);
+    transition: all 0.45s cubic-bezier(1, 0, 0, 1);
+    z-index: -1;
+}
+
+.headerLogoContent--ContentLink:hover::before,
+.headerLogoContent--ContentLink:active::before {
+    transform: scaleX(1);
+}
+
+/* Booking Content Section */
+section#bookingContent {
+    grid-column: center-start / col-end 6;
+    padding: var(--paddingSection);
+
+    display: grid;
+    grid-template-rows: repeat(3, max-content);
+    grid-gap: 2vh;
+}
+
+.bookingContentTitle {
+    font-size: var(--fontSizeTitle);
+    padding: 0 2rem 1rem;
+    font-weight: 300;
+    position: relative;
+}
+
+.bookingContentTitle::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 15%;
+    height: 0.2rem;
+    width: 30%;
+    background-color: var(--colorSecondary);
+}
+
+.bookingContentPara {
+    padding: 2rem;
+}
+
+section#bookingContent p,
+.bookingDateContact p {
+    color: var(--colorPriamry);
+}
+
+.bookingContentIcons {
+    margin-left: 2rem;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.bookingContentIcons--Weather,
+.bookingContentIcons--Time {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+    grid-template-rows: 10vh;
+    justify-items: start;
+    align-items: center;
+}
+
+/* Booking Date Section */
+section#bookingDate {
+    grid-column: col-start 7 / center-end;
+    padding: var(--paddingSection);
+
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.bookingDateSchedule {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 2vw;
+    place-items: center;
+}
+
+.bookingDateSchedule--Arrival,
+.bookingDateSchedule--Departure,
+.bookingDateSchedule--Guest {
+    display: grid;
+    grid-row-gap: 3vh;
+}
+
+.bookingDateSchedule--Arrival h5,
+.bookingDateSchedule--Departure h5,
+.bookingDateSchedule--Guest h5 {
+    font-size: calc(1rem + 1vw);
+    text-align: center;
+}
+
+.bookingDateSchedule--Arrival > div,
+.bookingDateSchedule--Departure > div,
+.bookingDateSchedule--Guest > div {
+    background-color: var(--colorSecondary);
+    padding: 2rem 4rem;
+
+
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    place-items: center;
+    position: relative;
+}
+
+.bookingDateSchedule--Arrival > div::before,
+.bookingDateSchedule--Departure > div::before,
+.bookingDateSchedule--Guest > div::before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    border-width: 1.5rem;
+    margin-left: -1.5rem;
+    border-color: transparent transparent var(--colorSecondary) transparent;
+    border-style: solid;
+}
+
+.bookingDateSchedule--Arrival > div p:nth-of-type(2),
+.bookingDateSchedule--Departure > div p:nth-of-type(2),
+.bookingDateSchedule--Guest > div p:nth-of-type(2) {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.bookingDateContact {
+    align-self: end;
+}
+
+.bookingDateContact--Link:link,
+.bookingDateContact--Link:visited {
+    background-color: var(--colorSecondary);
+    color: white;
+    transition: all var(--transitionDuration) ease-in-out;
+}
+
+.bookingDateContact--Link:hover,
+.bookingDateContact--Link:active {
+    color: var(--colorSecondary);
+    background-color: white;
+    border: 0.1rem var(--colorSecondary) solid;
+}
+
+.bookingDateContact p:first-of-type {
+    margin-top: 4rem;
+}
+
+.bookingDateContact p:first-of-type,
+.bookingDateContact p:nth-of-type(2),
+.bookingDateContact p:nth-of-type(3) {
+    font-size: 2rem;
+}
+
+/* Villas Section */
+section#villas {
+    grid-column: container-start / container-end;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+    grid-gap: 2rem;
+}
+
+div[class^="villasVilla"] {
+    padding: 2rem;
+    background-position: center;
+    background-size: cover;
+    transition: tranform var(--transitionDuration) ease-in-out;
+}
+
+div[class^="villasVilla"]:hover,
+div[class^="villasVilla"]:active {
+    transform: scale(1.05);
+}
+
+div[class^="villasVilla"] h2[class^="villasVilla"] {
+    font-size: var(--fontSizeTitle);
+    padding: 0 2rem 1rem 0;
+    font-weight: 400;
+    color: white;
+    text-transform: uppercase;
+}
+
+div[class^="villasVilla"] p[class^="villasVilla"] {
+    font-size: 2rem;
+    margin: 1.5rem 0 4rem 0;
+    color: white;
+    font-weight: 700;
+}
+
+div[class^="villasVilla"] a[class^="villasVilla"]:link,
+div[class^="villasVilla"] a[class^="villasVilla"]:visited {
+    display: inline-block;
+    margin-bottom: 2rem;
+    background-color: white;
+    color: var(--colorPriamry);
+    z-index: 2;
+    overflow: hidden;
+}
+
+div[class^="villasVilla"] a[class^="villasVilla"]:hover,
+div[class^="villasVilla"] a[class^="villasVilla"]:active {
+    color: white;
+}
+
+div[class^="villasVilla"] a[class^="villasVilla"]:link::before,
+div[class^="villasVilla"] a[class^="villasVilla"]:visited::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 0;
+    z-index: -1;
+    background-color: var(--colorSecondary);
+    transition: height var(--transitionDuration) ease-in-out;
+}
+
+div[class^="villasVilla"] a[class^="villasVilla"]:hover::before,
+div[class^="villasVilla"] a[class^="villasVilla"]:active::before {
+    height: 400%;
+}
+
+div[class^="villasVilla"]:nth-child(n) a[class^="villasVilla"]:link::before,
+div[class^="villasVilla"] a[class^="villasVilla"]:visited::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+div[class^="villasVilla"]:nth-child(2n) a[class^="villasVilla"]:link::before,
+div[class^="villasVilla"] a[class^="villasVilla"]:visited::before {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.villasVilla-1 {
+    background: linear-gradient(var(--colorPrimaryM-Light), var(--colorTetiaryM-Light)), url(img/Villas/villa-1.jpg);
+}
+
+.villasVilla-2 {
+    background: linear-gradient(var(--colorPrimaryM-Light), var(--colorTetiaryM-Light)), url(img/Villas/villa-2.jpg);
+}
+
+.villasVilla-3 {
+    background: linear-gradient(var(--colorPrimaryM-Light), var(--colorTetiaryM-Light)), url(img/Villas/villa-3.jpg);
+}
+
+.villasVilla-4 {
+    background: linear-gradient(var(--colorPrimaryM-Light), var(--colorTetiaryM-Light)), url(img/Villas/villa-4.jpg);
+}
+
+.villasVilla-5 {
+    background: linear-gradient(var(--colorPrimaryM-Light), var(--colorTetiaryM-Light)), url(img/Villas/villa-5.jpg);
+}
+
+.villasVilla-6 {
+    background: linear-gradient(var(--colorPrimaryM-Light), var(--colorTetiaryM-Light)), url(img/Villas/villa-6.jpg);
+}
+
+/* Motto Section */
+section#motto {
+    background-color: var(--colorPriamry);
+    grid-column: container-start / container-end;
+
+    padding: 10vh 3vw;
+}
+
+.mottoContent {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.mottoContentTitle {
+    font-size: var(--fontSizeTitle);
+    padding: 0 2rem 1rem;
+    font-weight: 300;
+    color: white;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.mottoContentTitle::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 45%;
+    height: 0.2rem;
+    width: 10%;
+    background-color: white;
+}
+
+
+/* Event Content Section Shared With Features Content */
+section#eventContent,
+section#featuresContent {
+    grid-column: container-start / col-end 9;
+    
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+section#eventContent > div,
+section#featuresContent > div {
+    padding: var(--paddingSection);
+    display: grid;
+
+    grid-template-areas: 
+        "title"
+        "para";
+    grid-row-gap: 4vh;
+    justify-items: start;
+    align-items: center; 
+}
+
+section#eventContent > div:first-child {
+    background: linear-gradient(var(--colorTetiaryM-Light), var(--colorTetiaryM-Light)), url(img/Events/beach-party.jpg);
+    
+    border-right: solid 0.2rem var(--colorTetiary);
+}
+
+section#eventContent > div:last-child {
+    background: linear-gradient(var(--colorTetiaryM-Light), var(--colorTetiaryM-Light)), url(img/Events/culture-discovery.jpg);
+
+    border-left: solid 0.2rem var(--colorTetiary);
+}
+
+
+section#eventContent > div:first-child,
+section#eventContent > div:last-child {
+    background-size: cover;
+    background-position: center;
+}
+
+
+section#eventContent > div h2[class*="Title"],
+section#featuresContent > div h2[class*="Title"] {
+    grid-area: title;
+    font-size: var(--fontSizeTitle);
+    font-weight: 400;
+    color: white;
+}
+
+section#eventContent > div p[class*="Para"],
+section#featuresContent > div p[class*="Para"] {
+    grid-area: para;
+    color: white;
+    font-weight: 500;
+}
+
+/* Event Text Section */
+section#eventText,
+section#featuresText {
+    background-color: var(--colorTetiary);
+    grid-column: col-start 10 / center-end;
+    
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    place-items: center;
+}
+
+.eventTextContent,
+.featuresTextContent {
+    transform: rotate(90deg);
+
+    /* Another way to do the rotate is: transform: rotate(0.25turn); */
+}
+
+.eventTextContent--Title,
+.featuresTextContent--Title,
+.gallaryTextContent--Title {
+    font-size: var(--fontSizeTitle);
+    font-weight: 500;
+    color: white;
+    letter-spacing: 0.2rem;
+}
+
+/* Gallary Text Section */
+section#gallaryText {
+    background-color: var(--colorPriamry);
+    grid-column: center-start / col-end 1;
+    
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    place-items: center;
+}
+
+.gallaryTextContent {
+    transform: rotate(-90deg);
+
+    /* Another way to do the rotate is: transform: rotate(-0.25turn); */
+}
+
+/* Gallary Carousel Section */
+section#gallaryCarousel {
+    grid-column: col-start 2 / container-end;
+    height: 90vh;
+    overflow: hidden;
+    border: solid 0.2rem var(--colorSecondary);
+    position: relative;
+}
+
+div.gallaryCarousel--ImgContainer {
+    background-color: lawngreen;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.gallaryCarousel--ImgContainerList {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform var(--transitionDuration) ease-in-out;
+}
+
+.gallaryCarousel--ImgContainerList__item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.gallaryCarousel--ImgContainerList__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallaryCarouselBtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.gallaryCarouselBtn--Right {
+    right: 0;
+}
+
+.gallaryCarouselNav {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    height: 5%;
+    transform: translateX(-50%);
+    margin-bottom: 1rem;
+
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: 1fr;
+    grid-gap: 3rem;
+}
+
+.gallaryCarouselNav--Btn {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    background-color: var(--colorSecondary);
+    border: none;
+    cursor: pointer; 
+}
+
+.currentImg {
+    background-color: var(--colorPriamry);
+}
+/* To Hide The Arrow */
+.hidden {
+    display: none;
+}
+
+/* Features Content Section */
+section#featuresContent > div:first-child {
+    background: linear-gradient(var(--colorSecondaryM-Light), var(--colorSecondaryM-Light)), url("img/Features/cocktail.jpg");
+    border-right: solid 0.2rem var(--colorSecondary);
+}
+
+section#featuresContent > div:last-child {
+    background: linear-gradient(var(--colorSecondaryM-Light), var(--colorSecondaryM-Light)), url("img/Features/surfing.jpg");
+    border-left: solid 0.2rem var(--colorSecondary);
+}
+
+section#featuresContent > div:first-child,
+section#featuresContent > div:last-child {
+    background-size: cover;
+    background-position: left;
+}
+
+
+/* Features Text Section */
+section#featuresText {
+    background-color: var(--colorSecondary);
+}
+
+/* Testemonials Section */
+section#testemonials {
+    grid-column: center-start / center-end;
+    padding: var(--paddingSection);
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 28rem);
+    grid-gap: 5rem;
+    place-content: center;
+}
+
+.testemonialsCard {
+    width: 28rem;
+    height: 50rem;
+    position: relative;
+}
+
+.testemonialsCardFront,
+.testemonialsCardBack {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 1s ease-in-out;
+    backface-visibility: hidden;
+    transform: perspective(100rem);
+
+    display: grid;
+    justify-items: center;
+    align-items: start;
+    padding: 3rem;
+}
+
+.testemonialsCardBack p {
+    place-self: center;
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.testemonialsCardFront h2 {
+    background-color: var(--colorSecondaryM-Light);
+    padding: 1rem;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+}
+
+
+
+.testemonialsCard:nth-child(2) .testemonialsCardFront {
+    background-image: url(https://www.leftovercurrency.com/app/uploads/2018/01/bahrain-25-fils-coin-obverse-2.jpg);
+}
+
+.testemonialsCard:nth-child(3) .testemonialsCardFront {
+    background-image: url(https://cloudfront-us-east-2.images.arcpublishing.com/reuters/NH5NFC5N6BOFTB2PH7GWQ3XTPE.jpg);
+}
+
+.testemonialsCard:nth-child(4) .testemonialsCardFront {
+    background-image: url(https://www.leftovercurrency.com/app/uploads/2018/01/bahrain-100-fils-coin-reverse-2.jpg);
+}
+
+
+.testemonialsCardBack {
+    transform: perspective(100rem) rotateY(0.5turn);
+    background-color: var(--colorSecondary);
+}
+
+.testemonialsCard:hover .testemonialsCardFront {
+    transform: perspective(100rem) rotateY(0.5turn);
+}
+
+.testemonialsCard:hover .testemonialsCardBack {
+    transform: perspective(100rem) rotateY(1turn);
+}
+
+/* Footer Section */
+footer#footer {
+    background-color: var(--colorPriamry);
+    grid-column: container-start / container-end;
+    padding: 6vh 4vw;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+}
+
+
+.footerSocialsLink i {
+    font-size: 2rem;
+    color: var(--colorPriamry);
+}
+
+@keyframes social {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.footerSocialsLink:link:nth-child(1),
+.footerSocials:visited:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.footerSocialsLink:link:nth-child(2),
+.footerSocials:visited:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+
+.footerSocialsLink:link:nth-child(3),
+.footerSocials:visited:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.footerSocialsLink:link:nth-child(4),
+.footerSocials:visited:nth-child(4) {
+    animation-delay: 0.9s;
+}
+
+
+/* Media Queries */
+
+/* At 1000px Mark */
+@media screen and (max-width: 1000px) {
+    /* All Links */
+    a:link,
+    a:visited {
+        font-size: calc(1rem + 1vw);
+    }
+}
+
+/* At 800px Mark */
+@media screen and (max-width: 800px) {
+    /* Booking Content Section */
+    section#bookingContent {
+        grid-column: center-start / center-end;
+        padding: 4vh 3vw;
+    }
+
+    .bookingContentTitle {
+        text-align: center;
+    }
+
+    .bookingContentTitle::after {
+        width: 20%;
+        left: 40%;
+    }
+
+    /* Booking Date Section */
+    section#bookingDate {
+        grid-column: center-start / center-end;
+        padding: 4vh 3vw;
+        grid-row-gap: 7vh;
+    }
+
+    .bookingDateSchedule--Arrival > div,
+    .bookingDateSchedule--Departure > div,
+    .bookingDateSchedule--Guest > div {
+        padding: 2rem;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: min-content;
+        grid-column-gap: 2vw;
+        place-items: center;
+    }
+
+    /* Villas Section */
+    section#villas {
+        grid-gap: 0;
+    }
+
+    /* Footer Section */
+    footer#footer {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, 1fr);
+        grid-row-gap: 3rem;
+    }
+}
+
+/* At 600px Mark  */
+@media screen and (max-width: 600px) {
+    /* Header Section */
+    .headerLogoContent--ContentPara {
+        font-size: 2rem;
+    }
+
+    /* Booking Date Section */
+    section#bookingDate {
+        grid-template-rows: repeat(2, max-content);
+    }
+
+    .bookingDateSchedule--Arrival > div,
+    .bookingDateSchedule--Departure > div,
+    .bookingDateSchedule--Guest > div {
+        padding: 4rem;
+        grid-template-columns: min-content;
+    }
+
+    /* Event Text Section */
+    /* Gallary Text Section */
+    section#eventText,
+    section#gallaryText,
+    section#featuresText {
+        display: none;
+    }
+
+    /* Booking Content Section */
+    /* Villas Section */
+    /* Motto Section */
+    /* Event Content Section */
+    /* Gallary Carousel Section */
+    /* Features Content Section */
+    /* Footer Section */
+    
+    div[class^="villasVilla"] p[class^="villasVilla"] {
+        margin: 1.5rem 0 4rem 0;
+    }
+
+    section#eventContent,
+    section#featuresContent {
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    }
+
+    section#eventContent,
+    section#gallaryCarousel,
+    section#featuresContent {
+        grid-column: center-start / center-end;
+    }
+
+    section#eventContent > div:first-child,
+    section#eventContent > div:last-child,
+    section#featuresContent > div:first-child,
+    section#featuresContent > div:last-child {
+        border: none;
+    }
+
+    .bookingContentPara,
+    div[class^="villasVilla"] p[class^="villasVilla"],
+    .mottoContentPara,
+    section#eventContent > div p[class*="Para"],
+    section#featuresContent > div p[class*="Para"],
+    footer#footer p {
+        font-size: 1.5rem;
+    }
+
+    .gallaryCarouselBtn i {
+        font-size: 5rem;
+    }
+
+    .gallaryCarouselNav {
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        height: 12%;
+        grid-column-gap: 10vw;
+        grid-row-gap: 3rem;
+        height: 12%;
+    }
+
+    footer#footer {
+        padding: 4vh 2vw;
+    }
+}
+
+/* At 400px Mark */
+@media screen and (max-width: 400px) {
+    /* Booking Date Section */
+    .bookingDateSchedule {
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-columns: auto;
+        grid-row-gap: 4vh;
+    }
+
+    .bookingDateContact {
+        justify-self: center;
+        padding: 0 2rem;
+    }
+
+    /* Villas Section */
+    section#villas {
+        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    }
+}
+
+
+/* TODAYS RATE */
+.containerr {
+    max-width: 400px;
+    margin-left: 10px;
+
+    padding: 20px;
+    background-color: #bcacba;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(77, 66, 66, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 0;
+}
+
+.converterr
+
+
+
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    
+}
+
+input[type="number"], select {
+    padding: 8px;
+    margin: 5px;
+    width: calc(100% - 10px);
+    border-radius: 20px;
+    background-color: #d4f3bd;
+    border: none;
+}
+
+#whatever {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    width: calc(100% - 10px);
+}
+
+#whatever:hover {
+    background-color: #0056b3;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 18px;
+    text-align: center;
+    width: 100%;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    padding: auto;
+    box-shadow: inset #535253;
+}
